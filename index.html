@@ -24,7 +24,7 @@
   html, body { margin: 0; padding: 0; }
 
   /* Offset anchor targets so fixed nav doesn't cover them */
-  [id] { scroll-margin-top: 5rem; }
+  [id] { scroll-margin-top: 5.2rem; }
 
   @media (max-width: 500px) {
     [id] { scroll-margin-top: 9rem; }
@@ -48,9 +48,19 @@
   }
 
   /* NAV */
-  nav {
+  .red-thread {
     position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--red);
+    z-index: 101;
+  }
+
+  nav {
+    position: fixed;
+    top: 3px;
     width: 100%;
     z-index: 100;
     background: rgba(250, 248, 245, 0.92);
@@ -241,17 +251,34 @@
     background: linear-gradient(to right, transparent, var(--warm-light), transparent);
   }
 
+  .divider-major hr {
+    background: linear-gradient(to right, transparent, rgba(181, 32, 32, 0.3), transparent);
+  }
+
   /* QUOTE BLOCK */
   .lineage-quote {
-    background: var(--ink);
+    position: relative;
+    background-image: url('vox-mundi-sangha.png');
+    background-size: cover;
+    background-position: center;
     color: var(--cream);
     padding: 5rem 2rem;
     text-align: center;
     margin: 0;
     max-width: 100%;
+    overflow: hidden;
+  }
+
+  .lineage-quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 16, 12, 0.7);
   }
 
   .lineage-quote blockquote {
+    position: relative;
+    z-index: 1;
     max-width: 700px;
     margin: 0 auto;
     font-family: 'Cormorant Garamond', serif;
@@ -263,6 +290,8 @@
   }
 
   .lineage-quote cite {
+    position: relative;
+    z-index: 1;
     display: block;
     margin-top: 1.5rem;
     font-family: 'Lato', sans-serif;
@@ -276,7 +305,7 @@
   /* CURRICULUM LIST */
   .curriculum-item {
     padding: 2rem 0;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    border-bottom: 1px solid rgba(196, 149, 106, 0.15);
   }
 
   .curriculum-item:last-child { border-bottom: none; }
@@ -752,6 +781,8 @@
 </head>
 <body>
 
+<div class="red-thread"></div>
+
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
@@ -911,6 +942,8 @@
   </div>
 </section>
 
+<div class="divider divider-major"><hr></div>
+
 <!-- MODULE STRUCTURE + UPCOMING MODULES -->
 <section id="modules">
   <h2>Upcoming 2026 Modules</h2>
@@ -952,7 +985,7 @@
       <li>An instrument to cultivate happiness and physical and emotional well-being</li>
     </ul>
 
-    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--warm-light);">
+    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(196, 149, 106, 0.15);">
       <ul class="outcomes-two-col">
         <li><strong>Rediscover Your Sense of Wonder:</strong> Embark on a journey to vocal freedom and musical creativity. Reimagine what "singing" and self-expression mean by breaking free from limiting beliefs — open yourself to new possibilities with your voice.</li>
         <li><strong>Reconnect with Your Essence:</strong> Experience spiritual growth and deeper self-awareness through the transformative power of the voice. Discover how the voice functions as both a musical instrument and a potent tool for healing and self-inquiry.</li>
@@ -969,7 +1002,7 @@
   </div>
 </section>
 
-<div class="divider"><hr></div>
+<div class="divider divider-major"><hr></div>
 
 <!-- GENERAL APPLICATIONS / OUTCOMES -->
 <section id="outcomes">

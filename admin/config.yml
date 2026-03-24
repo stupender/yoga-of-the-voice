@@ -1,0 +1,223 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: ""
+public_folder: "/"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Homepage"
+        file: "content/home.json"
+        fields:
+          # HERO
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "School Name", name: "schoolName", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Title Emphasis (italic line)", name: "titleEmphasis", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Button Text", name: "ctaText", widget: "string" }
+
+          # ABOUT
+          - label: "Program Overview"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraph 1", name: "body1", widget: "text" }
+              - { label: "Paragraph 2", name: "body2", widget: "text" }
+
+          # THE MOTHER QUOTE
+          - label: "The Mother Quote"
+            name: "motherQuote"
+            widget: "object"
+            fields:
+              - { label: "Quote Text", name: "text", widget: "text" }
+              - { label: "Attribution", name: "attribution", widget: "string" }
+
+          # LINEAGE
+          - label: "Lineage, Community & Format"
+            name: "lineage"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraph 1", name: "body1", widget: "text" }
+              - { label: "Paragraph 2", name: "body2", widget: "text" }
+              - { label: "Structure Heading", name: "structureHeading", widget: "string" }
+              - label: "Structure Items"
+                name: "structureItems"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "Entry Note", name: "entryNote", widget: "text" }
+
+          # WHAT IS
+          - label: "What Is the Yoga of the Voice?"
+            name: "whatIs"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Key Characteristics Heading", name: "keyCharacteristicsHeading", widget: "string" }
+              - label: "Key Characteristics"
+                name: "keyCharacteristics"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "Closing Note", name: "closingNote", widget: "text" }
+
+          # WHO IS THIS FOR
+          - label: "Who This Training Is For"
+            name: "whoIsFor"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - label: "Audience Tags"
+                name: "audiences"
+                widget: "list"
+                field: { label: "Audience", name: "audience", widget: "string" }
+
+          # LISTEN
+          - label: "Listen Section"
+            name: "listen"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Caption", name: "caption", widget: "string" }
+
+          # TRAINING
+          - label: "How the Training Is Structured"
+            name: "training"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - label: "Format Cards"
+                name: "formats"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          # MODULES
+          - label: "Upcoming Modules"
+            name: "modules"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro Paragraph 1", name: "intro1", widget: "text" }
+              - { label: "Intro Paragraph 2", name: "intro2", widget: "text" }
+              - label: "Spring Module"
+                name: "spring"
+                widget: "object"
+                fields:
+                  - { label: "Label (e.g. Spring Module May–August)", name: "label", widget: "string" }
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - label: "You Will Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+                  - { label: "Note", name: "note", widget: "text" }
+              - label: "Fall Module"
+                name: "fall"
+                widget: "object"
+                fields:
+                  - { label: "Label (e.g. Fall Module Oct–Dec)", name: "label", widget: "string" }
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - label: "The Voice Becomes Items"
+                    name: "voiceBecomesItems"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+                  - label: "Learning Outcomes (use **bold** for lead titles)"
+                    name: "learningOutcomes"
+                    widget: "list"
+                    field: { label: "Outcome", name: "outcome", widget: "string" }
+
+          # SILVIA QUOTE
+          - label: "Silvia Nakkach Quote"
+            name: "silviaQuote"
+            widget: "object"
+            fields:
+              - { label: "Quote Text", name: "text", widget: "text" }
+              - { label: "Attribution", name: "attribution", widget: "string" }
+
+          # OUTCOMES
+          - label: "General Applications / Outcomes"
+            name: "outcomes"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Sub-label", name: "subLabel", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Application", name: "application", widget: "string" }
+
+          # AREAS OF STUDY
+          - label: "Areas of Study & Modalities"
+            name: "areasOfStudy"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Sub-label", name: "subLabel", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Modality", name: "modality", widget: "string" }
+              - { label: "Closing Note", name: "closingNote", widget: "text" }
+
+          # REGISTER
+          - label: "Registration & Practical Details"
+            name: "register"
+            widget: "object"
+            fields:
+              - label: "Practical Details"
+                name: "practicalDetails"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Text", name: "text", widget: "string" }
+              - { label: "Certificate Intro", name: "certificateIntro", widget: "text" }
+              - label: "Certificate Requirements"
+                name: "certificateRequirements"
+                widget: "list"
+                field: { label: "Requirement", name: "requirement", widget: "string" }
+              - { label: "Certificate Note", name: "certificateNote", widget: "text" }
+              - { label: "Certificate Link Text", name: "certificateLink", widget: "text" }
+
+          # FACULTY
+          - label: "Faculty"
+            name: "faculty"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Bio Paragraph 1", name: "bio1", widget: "text" }
+              - { label: "Bio Paragraph 2", name: "bio2", widget: "text" }
+
+          # AT A GLANCE
+          - label: "At a Glance Sidebar"
+            name: "atAGlance"
+            widget: "object"
+            fields:
+              - { label: "Certification", name: "certification", widget: "string" }
+              - { label: "Format", name: "format", widget: "string" }
+              - { label: "Cohort", name: "cohort", widget: "string" }
+              - { label: "Mentoring", name: "mentoring", widget: "string" }
+              - { label: "Next Module", name: "nextModule", widget: "string" }
+              - { label: "Dates & Fees", name: "datesFees", widget: "string" }
+
+          # FOOTER
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - { label: "Tagline Line 2", name: "tagline2", widget: "string" }

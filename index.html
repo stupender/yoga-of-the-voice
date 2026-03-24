@@ -16,9 +16,17 @@
     --mist: #f0ece6;
     --stone: #6b6560;
     --deep: #2c2420;
+    --red: #b52020;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* Offset anchor targets so fixed nav doesn't cover them */
+  [id] { scroll-margin-top: 5rem; }
+
+  @media (max-width: 500px) {
+    [id] { scroll-margin-top: 9rem; }
+  }
 
   html { scroll-behavior: smooth; }
 
@@ -191,7 +199,7 @@
   }
 
   .section-label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--warm-dark);
@@ -284,7 +292,7 @@
   .curriculum-item li {
     padding: 0.35rem 0;
     color: var(--stone);
-    font-size: 0.95rem;
+    font-size: 1rem;
     padding-left: 1.2rem;
     position: relative;
   }
@@ -313,7 +321,7 @@
     background: var(--mist);
     border-radius: 2px;
     font-size: 0.92rem;
-    color: var(--stone);
+    color: var(--ink);
     line-height: 1.65;
   }
 
@@ -821,7 +829,7 @@
 
     <div style="margin-top: 1.5rem;">
       <p class="section-label" style="margin-bottom: 0.75rem;">General Learning Outcomes</p>
-      <ul>
+      <ul style="line-height: 2;">
         <li>Rediscover Your Sense of Wonder: Embark on a journey to vocal freedom and musical creativity. Reimagine what "singing" and self-expression mean by breaking free from limiting beliefs — open yourself to new possibilities with your voice.</li>
         <li>Reconnect with Your Essence: Experience spiritual growth and deeper self-awareness through the transformative power of the voice. Discover how the voice functions as both a musical instrument and a potent tool for healing and self-inquiry.</li>
         <li>Refine Tone and Musicality: Enhance your vocal technique by practicing sustained notes and meditative melodies. Develop patience and relaxation, allowing both body and mind to unlock new levels of tunefulness, vocal precision, and trance-space.</li>

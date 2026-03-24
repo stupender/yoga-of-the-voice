@@ -152,7 +152,7 @@
 
   .hero .subtitle {
     font-size: 1.05rem;
-    color: rgba(250, 248, 245, 0.6);
+    color: rgba(250, 248, 245, 0.75);
     max-width: 550px;
     margin: 0 auto 3rem;
     line-height: 1.8;
@@ -299,7 +299,7 @@
     position: relative;
   }
 
-  .curriculum-item li::before {
+.curriculum-item li::before {
     content: '';
     position: absolute;
     left: 0;
@@ -322,9 +322,11 @@
     padding: 1.5rem;
     background: var(--mist);
     border-radius: 2px;
-    font-size: 0.92rem;
+    font-size: 1rem;
     color: var(--ink);
     line-height: 1.65;
+    display: flex;
+    align-items: center;
   }
 
   /* WHO IS THIS FOR */
@@ -341,6 +343,81 @@
     font-size: 0.85rem;
     color: var(--stone);
     letter-spacing: 0.04em;
+  }
+
+  /* KEY CHARACTERISTICS */
+  .key-characteristics-list {
+    list-style: none;
+    padding: 0 0 0 1.5rem;
+    margin: 0;
+    border-left: 2px solid var(--warm);
+  }
+  .key-characteristics-list li {
+    padding: 0.4rem 0;
+    color: var(--stone);
+    font-size: 1rem;
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  /* CERTIFICATE REQUIREMENTS */
+  .requirements-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: req;
+  }
+  .requirements-list li {
+    counter-increment: req;
+    padding: 0.85rem 0 0.85rem 2.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--warm-light);
+    color: var(--stone);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .requirements-list li:first-child { border-top: 1px solid var(--warm-light); }
+  .requirements-list li::before {
+    content: counter(req);
+    position: absolute;
+    left: 0;
+    top: 1.05rem;
+    color: var(--warm);
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* GENERAL LEARNING OUTCOMES 2-COL */
+  .outcomes-two-col {
+    column-count: 2;
+    column-gap: 2.5rem;
+    line-height: 2;
+    list-style: none;
+    padding: 0;
+  }
+  .outcomes-two-col li {
+    break-inside: avoid;
+    padding: 0.35rem 0 0.35rem 1.2rem;
+    color: var(--stone);
+    font-size: 1rem;
+    position: relative;
+  }
+  .outcomes-two-col li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.1em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--warm);
+  }
+
+  /* REGISTER ZONE */
+  .register-zone {
+    background: var(--mist);
+    border-top: 1px solid var(--warm-light);
   }
 
   /* DETAILS SIDEBAR */
@@ -376,7 +453,7 @@
     justify-content: space-between;
     padding: 0.6rem 0;
     border-bottom: 1px solid rgba(250, 248, 245, 0.1);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .details-card .detail-row .label {
@@ -386,11 +463,10 @@
     font-size: 0.72rem;
   }
 
-  .details-card .cta {
-    display: block;
+  .cta {
+    display: inline-block;
     text-align: center;
-    margin-top: 2rem;
-    padding: 1rem;
+    padding: 1rem 2rem;
     background: var(--warm);
     color: var(--ink);
     text-decoration: none;
@@ -401,8 +477,35 @@
     transition: all 0.3s ease;
   }
 
-  .details-card .cta:hover {
-    background: var(--warm-light);
+  .cta:hover {
+    background: var(--warm-dark);
+    color: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,26,26,0.12);
+  }
+
+  .details-card .cta {
+    display: block;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .cta-primary {
+    display: inline-block;
+    margin-top: 2rem;
+    background: transparent;
+    border: 1px solid var(--warm);
+    color: var(--warm);
+    padding: 0.9rem 2.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+  }
+
+  .cta-primary:hover {
+    background: var(--warm);
+    color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,26,26,0.12);
   }
 
   /* ABOUT SILVIA */
@@ -475,6 +578,7 @@
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
+    .outcomes-two-col { column-count: 1; }
     nav ul { gap: 1.2rem; }
     nav a { font-size: 0.7rem; }
 
@@ -649,7 +753,7 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#listen">Listen</a></li>
-      <li><a href="#curriculum">Modules</a></li>
+      <li><a href="#curriculum">Training</a></li>
       <li><a href="#outcomes">Outcomes</a></li>
       <li><a href="#register">Register</a></li>
     </ul>
@@ -662,20 +766,18 @@
     <p class="school-name">Vox Mundi School of the Voice</p>
     <h1>Yoga of the Voice<br><em>International Certificate</em></h1>
     <p class="subtitle">A 108-hour training in sound, consciousness, and embodied voice — developed over more than three decades. Rooted in Integral Yoga, sound art, and the universal language of music.</p>
-    <a href="#register" class="next-module">Spring Module — Begins May 2026</a>
+    <a href="#register" class="next-module">Begin Your Journey — Spring 2026</a>
   </div>
   <span class="scroll-hint">Scroll</span>
 </section>
 
 <!-- PROGRAM OVERVIEW -->
 <section id="about">
-  <p class="section-label">Program Overview</p>
-  <h2>What is the Yoga of the Voice?</h2>
+  <p class="section-label">About</p>
+  <h2>Program Overview</h2>
   <p>The Yoga of the Voice International Certificate is a 108-hour training in sound, consciousness, and embodied voice, developed over more than three decades through the Vox Mundi School, and is continually evolving with the shifting currents of social and environmental change. Rooted in Integral Yoga, sound art, and the universal language of music, this program invites the voice, sound, and resonance to become instruments of liberation, attunement, and spiritual engagement.</p>
   <p>Unlike any other voice, music, and sound school program, this unique training bridges cultures and disciplines, integrating Western extended vocal techniques, contemplative practices, and the discipline and science of yoga with the deep listening and melodic sensibility of Indian ragas and medicine music like icaros and shamanic chants. The program is designed both for those seeking personal transformation through the sound and for artists, therapists, medicine circle facilitators, yoga practitioners, and educators who wish to develop a professional voice- and sound-centered practice.</p>
 </section>
-
-<div class="divider"><hr></div>
 
 <!-- QUOTE BLOCK -->
 <div class="lineage-quote">
@@ -687,8 +789,7 @@
 
 <!-- LINEAGE -->
 <section>
-  <p class="section-label">Lineage, Community &amp; Format</p>
-  <h2>A Living Sangha of Sound</h2>
+  <h2>Lineage, Community &amp; Format</h2>
   <p>For more than 30 years, the Vox Mundi School has evolved into a living creative community (sangha) of voice, sound, and music, offering training, retreats, and university-level teaching across the Americas, Europe, and Asia. Students stay involved for many years, deepening their sadhana, becoming teachers, and co-creating an ongoing culture of shared learning and mutual mentorship.</p>
   <p>The annual Summer Retreat in the Santa Cruz Mountains serves as a connective tissue for the international community, weaving together in-depth practice, performance, and contemplative immersion. Through the Study Abroad Journeys, students and teachers travel together, learn from the evolving practice, and maintain lifelong bonds of collaboration and shared inquiry.</p>
 
@@ -709,13 +810,12 @@
 
 <!-- WHAT IS THE YOGA OF THE VOICE -->
 <section>
-  <p class="section-label">Approach</p>
-  <h2>Voice as Sonic Energy, Beyond Conditioning</h2>
+  <h2>What Is the Yoga of the Voice?</h2>
   <p>The Yoga of the Voice is a comprehensive method that approaches the voice as sonic energy — a vital and primordial force — beyond cultural conditioning, level of musicianship, and performance anxiety. Through guided sound tools, vocal meditations, music listening, and somatic yogic practices, students engage in mindful breathing practices designed to activate subtle energetic awareness and cultivate a spacious, receptive mindset attuned to the freedom of the imagination.</p>
 
-  <div class="curriculum-item" style="margin-top: 2rem;">
+  <div style="margin-top: 2rem;">
     <h3>Key Characteristics</h3>
-    <ul>
+    <ul class="key-characteristics-list">
       <li>Voice as a portal to awakening Shakti (creative universal energy)</li>
       <li>Sound and silence as co-arising fields of awareness and consciousness expansion</li>
       <li>The "space between tones" as a site of subtle perception and expanded listening</li>
@@ -724,6 +824,28 @@
     </ul>
   </div>
   <p style="margin-top: 1.5rem;">When the voice is approached in this way, many students experience increased self-confidence, a more vivid musical practice, and the foundation for a sustainable professional practice, if that is their path. For over three decades, the Vox Mundi School has carried this living lineage, evolving continuously with the shifting currents of human sensibility and social change.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- WHO IS THIS FOR -->
+<section>
+  <h2>Who This Training Is For</h2>
+  <p>All levels of experience are welcome. No prior musical training is necessary — curiosity and willingness to listen deeply are the primary prerequisites.</p>
+
+  <div class="audience-tags">
+    <span class="audience-tag">Vocalists, Singers &amp; Composers</span>
+    <span class="audience-tag">Musicians</span>
+    <span class="audience-tag">Sound Practitioners</span>
+    <span class="audience-tag">Music Therapists</span>
+    <span class="audience-tag">Yoga Teachers</span>
+    <span class="audience-tag">Contemplative Practitioners</span>
+    <span class="audience-tag">Psychotherapists</span>
+    <span class="audience-tag">Bodyworkers</span>
+    <span class="audience-tag">Integrative Health Professionals</span>
+    <span class="audience-tag">Spiritual Wellness Seekers</span>
+    <span class="audience-tag">Community Leaders</span>
+  </div>
 </section>
 
 <!-- LISTEN SECTION -->
@@ -757,39 +879,34 @@
   </div>
 </div>
 
-<div class="divider"><hr></div>
-
 <!-- HOW THE TRAINING IS STRUCTURED -->
-<section>
-  <p class="section-label">Program Structure</p>
+<section id="curriculum">
+  <p class="section-label">Training</p>
   <h2>How the Training Is Structured</h2>
   <p>The Yoga of the Voice Certificate is designed with flexibility and depth in mind. Choose to take modules independently or accumulate hours toward the complete 108-hour International Certificate, and towards the Teacher Training Certificate, if the graduate wishes to dive deeper into becoming a teacher of the Yoga of the Voice.</p>
 
   <div class="outcomes-grid" style="margin-top: 2rem;">
     <div class="outcome">
-      <strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">Modular Format</strong>
-      Take individual modules over several weeks, each with a specific focus. Small groups, individual mentoring, and online forums.
+      <div><strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">Modular Format</strong>
+      Take individual modules over several weeks, each with a specific focus. Small groups, individual mentoring, and online forums.</div>
     </div>
     <div class="outcome">
-      <strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">Live Online Sessions</strong>
-      Participate in real-time classes from anywhere. Recordings often available for asynchronous learning.
+      <div><strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">Live Online Sessions</strong>
+      Participate in real-time classes from anywhere. Recordings often available for asynchronous learning.</div>
     </div>
     <div class="outcome">
-      <strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">In-Person Retreats and Study Abroad</strong>
-      Optional immersions at our Santa Cruz Retreat and other locations for deeper integration and community connection.
+      <div><strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">In-Person Retreats and Study Abroad</strong>
+      Optional immersions at our Santa Cruz Retreat and other locations for deeper integration and community connection.</div>
     </div>
     <div class="outcome">
-      <strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">One-on-One Clinics</strong>
-      Therapeutic Voice Clinics available online or in-person for personalized healing and vocal development.
+      <div><strong style="display: block; margin-bottom: 0.5rem; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">One-on-One Clinics</strong>
+      Therapeutic Voice Clinics available online or in-person for personalized healing and vocal development.</div>
     </div>
   </div>
 </section>
 
-<div class="divider"><hr></div>
-
 <!-- MODULE STRUCTURE + UPCOMING MODULES -->
-<section id="curriculum">
-  <p class="section-label">Module Structure</p>
+<section id="modules">
   <h2>Upcoming 2026 Modules</h2>
   <p>The 2026 series is offered in several Modules over the year. Each Module has a specific focus and can be taken independently, as a stand-alone immersion, or as part of the 108-hour Yoga of the Voice International Certificate.</p>
   <p>Admission to certain modules may require an online pre-consultation. Pre-registration is required; to inquire or register, email: <a href="mailto:voxmundi@yahoo.com" style="color: var(--warm-dark);">voxmundi@yahoo.com</a>.</p>
@@ -829,19 +946,18 @@
       <li>An instrument to cultivate happiness and physical and emotional well-being</li>
     </ul>
 
-    <div style="margin-top: 1.5rem;">
-      <p class="section-label" style="margin-bottom: 0.75rem;">General Learning Outcomes</p>
-      <ul style="line-height: 2;">
-        <li>Rediscover Your Sense of Wonder: Embark on a journey to vocal freedom and musical creativity. Reimagine what "singing" and self-expression mean by breaking free from limiting beliefs — open yourself to new possibilities with your voice.</li>
-        <li>Reconnect with Your Essence: Experience spiritual growth and deeper self-awareness through the transformative power of the voice. Discover how the voice functions as both a musical instrument and a potent tool for healing and self-inquiry.</li>
-        <li>Refine Tone and Musicality: Enhance your vocal technique by practicing sustained notes and meditative melodies. Develop patience and relaxation, allowing both body and mind to unlock new levels of tunefulness, vocal precision, and trance-space.</li>
-        <li>Embrace Emotional Expression: Learn to release emotions through continuous vocalization. Develop the ability to let feelings flow musically, transcending purely personal stories and tapping into universal expression.</li>
-        <li>Enjoy Improvisation and Composition by playing with extended vocal techniques inspired by Indian classical raga and experimental contemporary music as a template, including vocal percussion, multiphonics, and expanding the sonic range of your voice as an actual musical instrument. No previous experience is required.</li>
-        <li>Build an Inspiring Repertoire: Explore a diverse array of vocal pieces and songs that focus on the textures and architectures of sound. Expand your creative imagination and cultivate a unique artistic voice.</li>
-        <li>Explore subtle dimensions of sound and auditory perception where clarity and luminosity abide, transforming consciousness and emotions.</li>
-        <li>Enhance your expressive confidence by having a mentor guide your creative process. Creativity is not an individual process.</li>
-        <li>Collaborate and Facilitate Group Chanting: Engage in dynamic, creative collaborations with your peers. Gather yourself in co-creative environments that foster deep listening, artistic renewal, and transformation.</li>
-        <li>Infuse your practice with Poetry — and let poetic expression enrich your journey towards inner resonance.</li>
+    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--warm-light);">
+      <ul class="outcomes-two-col">
+        <li><strong>Rediscover Your Sense of Wonder:</strong> Embark on a journey to vocal freedom and musical creativity. Reimagine what "singing" and self-expression mean by breaking free from limiting beliefs — open yourself to new possibilities with your voice.</li>
+        <li><strong>Reconnect with Your Essence:</strong> Experience spiritual growth and deeper self-awareness through the transformative power of the voice. Discover how the voice functions as both a musical instrument and a potent tool for healing and self-inquiry.</li>
+        <li><strong>Refine Tone and Musicality:</strong> Enhance your vocal technique by practicing sustained notes and meditative melodies. Develop patience and relaxation, allowing both body and mind to unlock new levels of tunefulness, vocal precision, and trance-space.</li>
+        <li><strong>Embrace Emotional Expression:</strong> Learn to release emotions through continuous vocalization. Develop the ability to let feelings flow musically, transcending purely personal stories and tapping into universal expression.</li>
+        <li><strong>Enjoy Improvisation and Composition:</strong> by playing with extended vocal techniques inspired by Indian classical raga and experimental contemporary music as a template, including vocal percussion, multiphonics, and expanding the sonic range of your voice as an actual musical instrument. No previous experience is required.</li>
+        <li><strong>Build an Inspiring Repertoire:</strong> Explore a diverse array of vocal pieces and songs that focus on the textures and architectures of sound. Expand your creative imagination and cultivate a unique artistic voice.</li>
+        <li><strong>Explore subtle dimensions of sound</strong> and auditory perception where clarity and luminosity abide, transforming consciousness and emotions.</li>
+        <li><strong>Enhance your expressive confidence by having a mentor</strong> guide your creative process. Creativity is not an individual process.</li>
+        <li><strong>Collaborate and Facilitate Group Chanting:</strong> Engage in dynamic, creative collaborations with your peers. Gather yourself in co-creative environments that foster deep listening, artistic renewal, and transformation.</li>
+        <li><strong>Infuse your practice with Poetry</strong> — and let poetic expression enrich your journey towards inner resonance.</li>
       </ul>
     </div>
   </div>
@@ -851,8 +967,8 @@
 
 <!-- GENERAL APPLICATIONS / OUTCOMES -->
 <section id="outcomes">
-  <p class="section-label">General Applications</p>
-  <h2>What You Will Be Able to Do</h2>
+  <p class="section-label">Outcomes</p>
+  <h2>General Applications</h2>
   <p>By the end of the core sequence, students will be able to:</p>
 
   <div class="outcomes-grid">
@@ -874,104 +990,73 @@
 
 <!-- AREAS OF STUDY -->
 <section>
-  <p class="section-label">Areas of Study &amp; Modalities</p>
-  <h2>Areas of Study</h2>
+  <h2>Areas of Study &amp; Modalities</h2>
   <p>Areas of study woven through weekend trainings, virtual sessions, and retreats include:</p>
 
-  <div class="curriculum-item">
-    <ul>
-      <li>Using the voice in shamanic journeys</li>
-      <li>Vocal improvisation and medicine melodies</li>
-      <li>The shamanic, contemplative, and expressive dimensions of the voice</li>
-      <li>Enhancing memory through vocalizations and call-and-response chanting</li>
-      <li>The voice and the art of songwriting</li>
-      <li>Attending to vocal impediments through subtle, somatic approaches</li>
-      <li>Uses of the voice in sound healing and therapeutic alliances</li>
-      <li>Performance ease and stage presence</li>
-      <li>Creating a vocal music repertoire, including classical Indian healing mantras and ragas</li>
-    </ul>
+  <div class="audience-tags">
+    <span class="audience-tag">Using the voice in shamanic journeys</span>
+    <span class="audience-tag">Vocal improvisation and medicine melodies</span>
+    <span class="audience-tag">The shamanic, contemplative, and expressive dimensions of the voice</span>
+    <span class="audience-tag">Enhancing memory through vocalizations and call-and-response chanting</span>
+    <span class="audience-tag">The voice and the art of songwriting</span>
+    <span class="audience-tag">Attending to vocal impediments through subtle, somatic approaches</span>
+    <span class="audience-tag">Uses of the voice in sound healing and therapeutic alliances</span>
+    <span class="audience-tag">Performance ease and stage presence</span>
+    <span class="audience-tag">Creating a vocal music repertoire, including classical Indian healing mantras and ragas</span>
   </div>
   <p style="margin-top: 1.5rem;">Therapeutic Voice Clinics are offered as part of the curriculum, either one-on-one or in small groups, online or in-person, to support individualized healing and integration.</p>
 </section>
 
-<div class="divider"><hr></div>
-
-<!-- WHO IS THIS FOR -->
-<section>
-  <p class="section-label">Who This Training Is For</p>
-  <h2>This Program Welcomes</h2>
-  <p>All levels of experience are welcome. No prior musical training is necessary — curiosity and willingness to listen deeply are the primary prerequisites.</p>
-
-  <div class="audience-tags">
-    <span class="audience-tag">Vocalists, Singers &amp; Composers</span>
-    <span class="audience-tag">Musicians</span>
-    <span class="audience-tag">Sound Practitioners</span>
-    <span class="audience-tag">Music Therapists</span>
-    <span class="audience-tag">Yoga Teachers</span>
-    <span class="audience-tag">Contemplative Practitioners</span>
-    <span class="audience-tag">Psychotherapists</span>
-    <span class="audience-tag">Bodyworkers</span>
-    <span class="audience-tag">Integrative Health Professionals</span>
-    <span class="audience-tag">Spiritual Wellness Seekers</span>
-    <span class="audience-tag">Community Leaders</span>
-  </div>
-</section>
-
-<div class="divider"><hr></div>
-
-<!-- CERTIFICATE REQUIREMENTS -->
-<section>
-  <p class="section-label">Certificate Requirements</p>
-  <h2>Certificate Requirements</h2>
-  <p>To receive the Yoga of the Voice International Certificate (108 hours), students are invited to:</p>
-
-  <div class="curriculum-item">
-    <ul>
-      <li>Complete a minimum of 3 core Modules (e.g., Free Your Voice, Play Your Voice; Voice and Sound Healing, Embodied Listening, and Teaching Practicum)</li>
-      <li>Participate in at least one Summer Retreat or equivalent in-person immersion</li>
-      <li>Attend a Therapeutic Voice Clinic or Individual Mentoring sessions</li>
-      <li>Complete a Practicum Project (e.g., facilitating a chanting circle, developing a vocal healing session, generating an original recording, or creating a research-based portfolio integrating the work into their field)</li>
-    </ul>
-  </div>
-  <p style="margin-top: 1.5rem;">Specific hour requirements, dates, and fees are announced annually on the Vox Mundi Project website.</p>
-</section>
-
-<div class="divider"><hr></div>
-
-<!-- PRACTICAL DETAILS -->
-<section>
-  <p class="section-label">Practical Details</p>
-  <h2>Practical Details</h2>
-
-  <div class="curriculum-item">
-    <ul>
-      <li><strong>Next Online Module:</strong> Begins May (dates and fees to be confirmed; stay tuned)</li>
-      <li><strong>Format:</strong> Live online sessions, recordings (if offered), small-group practice, mentoring, forum</li>
-      <li><strong>Location:</strong> Online, with optional in-person retreats in Santa Cruz Mountains and other sites</li>
-      <li><strong>Registration:</strong> Email <a href="mailto:voxmundi@yahoo.com?subject=Yoga%20of%20the%20Voice%20Inquiry" style="color: var(--warm-dark);">voxmundi@yahoo.com</a> with your location, background, and your intention for taking the course</li>
-      <li><strong>Admission:</strong> Some modules may require a brief pre-consultation to ensure alignment and support</li>
-    </ul>
-  </div>
-  <p style="margin-top: 1.5rem;">To learn more about the Yoga of the Voice Certificate Program and to access the registration form, visit the Vox Mundi Project website.</p>
-</section>
-
-<div class="divider"><hr></div>
+<div class="register-zone">
 
 <!-- DETAILS + SIDEBAR -->
 <div class="details-section" id="details">
   <div class="details-main">
-    <p class="section-label">Faculty</p>
-    <h2>Silvia Nakkach</h2>
-    <div class="about-silvia">
-      <img src="silvia-nakkach.jpeg" alt="Silvia Nakkach">
-      <p>Silvia Nakkach, MA, MMT, is a Grammy-nominated composer, vocal artist, and author — a pioneer in the field of sound and consciousness transformation. She is the founding director of the international Vox Mundi School of the Voice, with centers across the Americas, Europe, and Asia.</p>
-      <p>While on the faculty of the California Institute of Integral Studies, she created the premier certificate program in sound, voice, and music in the healing arts. She has devoted over 40 years to the study of North Indian classical music and the evolution of Deep Listening with her mentor, Pauline Oliveros.</p>
+    <p class="section-label">Register</p>
+
+    <h3>Practical Details</h3>
+    <div class="curriculum-item">
+      <ul>
+        <li><strong>Next Online Module:</strong> Begins May (dates and fees to be confirmed; stay tuned)</li>
+        <li><strong>Format:</strong> Live online sessions, recordings (if offered), small-group practice, mentoring, forum</li>
+        <li><strong>Location:</strong> Online, with optional in-person retreats in Santa Cruz Mountains and other sites</li>
+        <li><strong>Registration:</strong> Email <a href="mailto:voxmundi@yahoo.com?subject=Yoga%20of%20the%20Voice%20Inquiry" style="color: var(--warm-dark);">voxmundi@yahoo.com</a> with your location, background, and your intention for taking the course</li>
+        <li><strong>Admission:</strong> Some modules may require a brief pre-consultation to ensure alignment and support</li>
+      </ul>
+    </div>
+
+    <div style="text-align: left; margin-top: 2rem;">
+      <a href="mailto:voxmundi@yahoo.com?subject=Yoga%20of%20the%20Voice%20Inquiry" class="cta cta-primary">Inquire &amp; Register</a>
+    </div>
+
+    <div style="border-top: 1px solid var(--warm-light); margin-top: 3rem; padding-top: 3rem;">
+      <h3>Certificate Requirements</h3>
+      <p>To receive the Yoga of the Voice International Certificate (108 hours), students are invited to:</p>
+      <ol class="requirements-list" style="margin-top: 1rem;">
+        <li>Complete a minimum of 3 core Modules (e.g., Free Your Voice, Play Your Voice; Voice and Sound Healing, Embodied Listening, and Teaching Practicum)</li>
+        <li>Participate in at least one Summer Retreat or equivalent in-person immersion</li>
+        <li>Attend a Therapeutic Voice Clinic or Individual Mentoring sessions</li>
+        <li>Complete a Practicum Project (e.g., facilitating a chanting circle, developing a vocal healing session, generating an original recording, or creating a research-based portfolio integrating the work into their field)</li>
+      </ol>
+      <p style="margin-top: 1.5rem;">Specific hour requirements, dates, and fees are announced annually on the Vox Mundi Project website.</p>
+      <p style="margin-top: 1rem;">To learn more about the Yoga of the Voice Certificate Program and to access the registration form, visit the <a href="https://voxmundiproject.com" style="color: var(--warm-dark);">Vox Mundi Project website</a>.</p>
+    </div>
+
+    <div style="border-top: 1px solid var(--warm-light); margin-top: 3rem; padding-top: 3rem;">
+      <p class="section-label">Faculty</p>
+      <h2>Silvia Nakkach</h2>
+      <div class="about-silvia">
+        <img src="silvia-nakkach.jpeg" alt="Silvia Nakkach">
+        <p>Silvia Nakkach, MA, MMT, is a Grammy-nominated composer, vocal artist, and author — a pioneer in the field of sound and consciousness transformation. She is the founding director of the international Vox Mundi School of the Voice, with centers across the Americas, Europe, and Asia.</p>
+        <p>While on the faculty of the California Institute of Integral Studies, she created the premier certificate program in sound, voice, and music in the healing arts. She has devoted over 40 years to the study of North Indian classical music and the evolution of Deep Listening with her mentor, Pauline Oliveros.</p>
+      </div>
     </div>
   </div>
 
   <!-- SIDEBAR CARD -->
   <div class="details-card" id="register">
-    <h4>Quick Facts</h4>
+    <p class="section-label" style="margin-bottom: 0.75rem;">Register</p>
+    <h4>At a Glance</h4>
     <div class="detail-row">
       <span class="label">Certification</span>
       <span>108 Hours</span>
@@ -1001,11 +1086,14 @@
       <span>TBA</span>
     </div>
     <a href="mailto:voxmundi@yahoo.com?subject=Yoga%20of%20the%20Voice%20Inquiry" class="cta">Inquire &amp; Register</a>
-    <p style="font-size: 0.78rem; color: rgba(250,248,245,0.4); margin-top: 1.2rem; line-height: 1.5; text-align: center;">
+    <p style="font-size: 0.78rem; color: rgba(250,248,245,0.5); margin-top: 1rem; line-height: 1.5; text-align: center;">We'll follow up within 48 hours to discuss your intentions and ensure alignment.</p>
+    <p style="font-size: 0.78rem; color: rgba(250,248,245,0.4); margin-top: 0.5rem; line-height: 1.5; text-align: center;">
       Email <a href="mailto:voxmundi@yahoo.com?subject=Yoga%20of%20the%20Voice%20Inquiry" style="color: rgba(250,248,245,0.6);">voxmundi@yahoo.com</a> with your location, background, and intention for the course.
     </p>
   </div>
 </div>
+
+</div><!-- end register-zone -->
 
 <!-- FOOTER -->
 <footer>

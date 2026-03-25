@@ -1,0 +1,20 @@
+paths:
+  uploads: ""
+
+_editables:
+  content:
+    bold: true
+    italic: true
+    link: true
+    bulletedlist: true
+    numberedlist: true
+  text:
+    bold: true
+    italic: true
+    link: true
+  block:
+    bold: true
+    italic: true
+    link: true
+    bulletedlist: true
+    numberedlist: true

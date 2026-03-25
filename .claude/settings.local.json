@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Volumes/Archive/Dropbox/Being Sound/Bespoke Projects/Silvia Nakkach/Landing Pages/silvia_birdsbackground.jpg\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Volumes/Archive/Dropbox/Being Sound/Bespoke Projects/Silvia Nakkach/Landing Pages/silvia-nakkach.jpeg\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Volumes/Archive/Dropbox/Being Sound/Bespoke Projects/Silvia Nakkach/Landing Pages/vox-mundi-sangha.png\")",
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(gh api:*)",
+      "Bash(sed -i '' 's|Email voxmundi@yahoo\\\\.com with your location, background, and your intention for taking the course|Email <a href=\"\"mailto:voxmundi@yahoo.com?subject=Yoga%20of%20the%20Voice%20Inquiry\"\" style=\"\"color: var\\(--warm-dark\\);\"\">voxmundi@yahoo.com<\\\\/a> with your location, background, and your intention for taking the course|g' yoga-of-the-voice.html)",
+      "Bash(sed -i '' 's|Email voxmundi@yahoo\\\\.com with your location, background, and intention for the course\\\\.|Email <a href=\"\"mailto:voxmundi@yahoo.com?subject=Yoga%20of%20the%20Voice%20Inquiry\"\" style=\"\"color: rgba\\(250,248,245,0.6\\);\"\">voxmundi@yahoo.com<\\\\/a> with your location, background, and intention for the course.|g' yoga-of-the-voice.html)",
+      "Bash(python3 -c \"import json; json.load\\(open\\(''content/home.json''\\)\\)\")"
+    ]
+  }
+}

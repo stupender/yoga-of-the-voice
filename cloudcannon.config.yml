@@ -1,6 +1,16 @@
 paths:
   uploads: ""
 
+collections_config:
+  pages:
+    path: ""
+    output: true
+    url: "/[slug]/"
+    icon: wysiwyg
+    _enabled_editors:
+      - visual
+      - source
+
 _editables:
   content:
     bold: true
